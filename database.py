@@ -35,7 +35,6 @@ def add_user(email, password):
 def check_login(email,password):
     connection = sqlite3.connect("sparo.db")
     cursor = connection.cursor()
-
     cursor.execute(
         "SELECT password_hash FROM users WHERE email = ?", (email,)
     )
@@ -44,7 +43,7 @@ def check_login(email,password):
 
     if user is None:
         return False
-        
+
     return check_password_hash(user[0], password)
 
 if __name__ == "__main__":
