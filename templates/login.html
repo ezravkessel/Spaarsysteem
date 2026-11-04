@@ -29,6 +29,9 @@
                 <p class="subtitle">Welkom terug</p>
 
                 <form method="POST" action="{{ url_for('login') }}">
+                    {% if error %}
+                        <p class="login-error">{{ error }}</p>
+                    {% endif %}
                     <label for="email">E-mailadres</label>
                     <input
                         type="email"
