@@ -1,5 +1,5 @@
 
-/* Algemene instellingen */
+
 * {
     box-sizing: border-box;
 }
@@ -10,13 +10,13 @@ body {
     color: #102d2b;
 }
 
-/* Verdeling van het scherm */
+
 .login-container {
     display: flex;
     min-height: 100vh;
 }
 
-/* Linkerkant met welkomsttekst */
+
 .welcome-section {
     width: 52%;
     background-color: #0e2928;
