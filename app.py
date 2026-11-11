@@ -46,6 +46,12 @@ def logout():
     session.clear()
     return redirect(url_for("login"))
 
+@app.route("/storten", methods=["GET"])
+def storten():
+    if "user_email" not in session:
+        return redirect(url_for("login"))
+
+    return render_template("storten.html")
 
 
 
