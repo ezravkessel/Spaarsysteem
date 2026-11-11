@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inloggen - Sparo</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+</head>
+<body>
+    <main class="login-container">
+
+        
+        <section class="welcome-section">
+            <h2 class="logo">Sparo</h2>
+
+            <div class="welcome-text">
+                <h1>Laat je geld rustig groeien.</h1>
+                <p>Bekijk je saldo en rente, en maak geld over tussen je spaarpotten.</p>
+            </div>
+
+            <p class="footer-text">Veilig inloggen met je account</p>
+        </section>
+
+        
+        <section class="login-section">
+            <div class="login-card">
+                <h2>Inloggen</h2>
+                <p class="subtitle">Welkom terug</p>
+
+                <form method="POST" action="{{ url_for('login') }}">
+                    {% if error %}
+                        <p class="login-error">{{ error }}</p>
+                    {% endif %}
+                    <label for="email">E-mailadres</label>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="naam@voorbeeld.nl"
+                        autocomplete="email"
+                        required
+                    >
+
+                    <label for="password">Wachtwoord</label>
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Wachtwoord"
+                        autocomplete="current-password"
+                        required
+                    >
+
+                    <a href="#" class="forgot-password">
+                        Wachtwoord vergeten?
+                    </a>
+
+                    <button type="submit">Inloggen</button>
+                </form>
+            </div>
+        </section>
+
+    </main>
+</body>
+</html>
