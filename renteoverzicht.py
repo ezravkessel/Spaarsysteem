@@ -33,7 +33,7 @@ print(rente_dag(20000, 2026))
 print(rente_kwartaal(20000))  
 
 # Functionele werking?
-#  - Goed maar het saldo is op het moment hard-coded. Dit kan later veranderd worden
+#  - Goed maar het saldo is op het moment hard-coded. Dit kan later veranderd worden het is handiger om niet in floats te werken maar in decimals of centen.
 # Code logisch?
 # - ja
 # Variabele
