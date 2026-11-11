@@ -103,3 +103,19 @@ body {
     font-size: 14px;
     text-align: center;
 }
+
+
+/* Terug naar saldo-overzicht */
+.terug-knop {
+    display: block;
+    margin-top: 20px;
+    color: #0d806c;
+    font-size: 14px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.terug-knop:hover {
+    text-decoration: underline;
+}
