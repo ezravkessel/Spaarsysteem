@@ -78,3 +78,28 @@ body {
 .storten-card button:hover {
     background-color: #096b5b;
 }
+
+
+/* Foutmelding */
+.storten-error {
+    background-color: #fff0f0;
+    color: #b42318;
+    border: 1px solid #f5c2c7;
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 16px;
+    font-size: 14px;
+    text-align: center;
+}
+
+/* Succesmelding */
+.storten-success {
+    background-color: #e7f5ef;
+    color: #0d806c;
+    border: 1px solid #b9ceca;
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 16px;
+    font-size: 14px;
+    text-align: center;
+}

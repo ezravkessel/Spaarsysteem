@@ -1,22 +1,39 @@
-
 <!DOCTYPE html>
 <html lang="nl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Saldo storten - Sparo</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/storten.css') }}">
 </head>
+
 <body>
     <main class="storten-container">
         <section class="storten-card">
             <h1>Saldo storten</h1>
             <p class="subtitle">Voeg geld toe aan je spaarrekening.</p>
 
+
+            {% if foutmelding %}
+            <div class="storten-error">
+                {{ foutmelding }}
+            </div>
+            {% endif %}
+
+            {% if succesmelding %}
+            <div class="storten-success">
+                {{ succesmelding }}
+            </div>
+            {% endif %}
+
+
+
+
+
             <form method="POST">
                 <label for="bedrag">Bedrag (€)</label>
-                <input type="number" id="bedrag" name="bedrag"
-                       min="0.01" step="0.01" placeholder="0,00" required>
+                <input type="number" id="bedrag" name="bedrag" min="0.01" step="0.01" placeholder="0,00" required>
 
                 <label for="van_rekening">Van rekening</label>
                 <select id="van_rekening" name="van_rekening" required>
@@ -35,4 +52,5 @@
         </section>
     </main>
 </body>
+
 </html>
