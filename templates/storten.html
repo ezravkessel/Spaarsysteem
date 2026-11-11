@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saldo storten - Sparo</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/storten.css') }}">
+</head>
+<body>
+    <main class="storten-container">
+        <section class="storten-card">
+            <h1>Saldo storten</h1>
+            <p class="subtitle">Voeg geld toe aan je spaarrekening.</p>
+
+            <form method="POST">
+                <label for="bedrag">Bedrag (€)</label>
+                <input type="number" id="bedrag" name="bedrag"
+                       min="0.01" step="0.01" placeholder="0,00" required>
+
+                <label for="van_rekening">Van rekening</label>
+                <select id="van_rekening" name="van_rekening" required>
+                    <option value="">Kies een rekening</option>
+                    <option value="betaalrekening">Betaalrekening</option>
+                </select>
+
+                <label for="naar_rekening">Naar spaarrekening</label>
+                <select id="naar_rekening" name="naar_rekening" required>
+                    <option value="">Kies een spaarrekening</option>
+                    <option value="spaarrekening">Spaarrekening</option>
+                </select>
+
+                <button type="submit">Geld storten</button>
+            </form>
+        </section>
+    </main>
+</body>
+</html>
