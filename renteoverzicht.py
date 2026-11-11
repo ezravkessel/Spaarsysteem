@@ -31,3 +31,12 @@ print(rente_jaar(20000))
 print(rente_dag(20000, 2026))   
 print(rente_dag(20000, 2026))   
 print(rente_kwartaal(20000))  
+
+# Functionele werking?
+#  - Goed maar het saldo is op het moment hard-coded. Dit kan later veranderd worden
+# Code logisch?
+# - ja
+# Variabele
+# - goed
+# Architectuur
+#  - logisch
