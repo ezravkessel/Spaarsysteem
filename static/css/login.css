@@ -184,3 +184,15 @@ body {
 .login-card button {
     padding: 14px;
 }
+
+
+.login-error {
+    background-color: #fff0f0;
+    color: #b42318;
+    border: 1px solid #f5c2c7;
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 16px;
+    font-size: 14px;
+    text-align: center;
+}

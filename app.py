@@ -23,7 +23,10 @@ def login():
             session["user_email"] = email
             return "Inloggen succesvol!"
         else:
-            return "Ongeldige inloggegevens!"
+            return render_template(
+               "login.html",
+                error="E-mailadres of wachtwoord is onjuist."
+            )
 
     return render_template("login.html")
 
