@@ -28,7 +28,7 @@ def login():
         if check_login(email, password):
             session.clear()
             session["user_email"] = email
-            return "Inloggen succesvol!"
+            return redirect(url_for("home"))
         else:
             return render_template(
                "login.html",
