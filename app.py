@@ -11,7 +11,10 @@ app.register_blueprint(saldo_bp)
 
 @app.route("/")
 def home():
-    return render_template("index.html")
+    if "user_email" in session:
+        return redirect(url_for("saldo.saldo_overzicht"))
+
+    return redirect(url_for("login"))
 
 
 
