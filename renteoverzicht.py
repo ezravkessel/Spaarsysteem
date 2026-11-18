@@ -33,18 +33,10 @@ def rente_dag(saldo, jaar):
     return rente_jaar(saldo) / dagen_in_jaar(jaar)
 
 
-def rente_kwartaal(saldo, jaar, kwartaal):
-    return rente_dag(saldo, jaar) * dagen_in_kwartaal(jaar, kwartaal)
+def rente_kwartaal(saldo):
+    return rente_jaar(saldo) / 4
 
-
-saldo = 50000
-for jaar in (2024, 2026):
-    print(f"--- {jaar} ---")
-    print(f"Per jaar:  {rente_jaar(saldo):.2f}")
-    print(f"Per dag:   {rente_dag(saldo, jaar):.4f}")
-    totaal = 0
-    for k in range(1, 5):
-        r = rente_kwartaal(saldo, jaar, k)
-        totaal += r
-        print(f"Q{k} ({dagen_in_kwartaal(jaar, k)} dagen): {r:.2f}")
-    print(f"Som kwartalen: {totaal:.2f}")
+print(rente_jaar(20000))        
+print(rente_dag(20000, 2026))   
+print(rente_dag(20000, 2026))   
+print(rente_kwartaal(20000))  
