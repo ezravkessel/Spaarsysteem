@@ -11,8 +11,18 @@ def percentage(saldo):
     elif saldo <= 100000:
         return 1.8
     elif saldo <= 1000000:
-        return 1.95
+        return 1.55
     return 0.0
+
+
+def dagen_in_jaar(jaar):
+    return 366 if calendar.isleap(jaar) else 365
+
+
+def dagen_in_kwartaal(jaar, kwartaal):
+    eerste_maand = 3 * (kwartaal - 1) + 1
+    return sum(calendar.monthrange(jaar, m)[1]
+               for m in range(eerste_maand, eerste_maand + 3))
 
 
 def rente_jaar(saldo):
@@ -20,23 +30,21 @@ def rente_jaar(saldo):
 
 
 def rente_dag(saldo, jaar):
-    dagen = 366 if calendar.isleap(jaar) else 365
-    return rente_jaar(saldo) / dagen
+    return rente_jaar(saldo) / dagen_in_jaar(jaar)
 
 
-def rente_kwartaal(saldo):
-    return rente_jaar(saldo) / 4
+def rente_kwartaal(saldo, jaar, kwartaal):
+    return rente_dag(saldo, jaar) * dagen_in_kwartaal(jaar, kwartaal)
 
-print(rente_jaar(20000))        
-print(rente_dag(20000, 2026))   
-print(rente_dag(20000, 2026))   
-print(rente_kwartaal(20000))  
 
-# Functionele werking?
-#  - Goed maar het saldo is op het moment hard-coded. Dit kan later veranderd worden het is handiger om niet in floats te werken maar in decimals of centen.
-# Code logisch?
-# - ja
-# Variabele
-# - goed
-# Architectuur
-#  - logisch
+saldo = 20000
+for jaar in (2024, 2026):
+    print(f"--- {jaar} ---")
+    print(f"Per jaar:  {rente_jaar(saldo):.2f}")
+    print(f"Per dag:   {rente_dag(saldo, jaar):.4f}")
+    totaal = 0
+    for k in range(1, 5):
+        r = rente_kwartaal(saldo, jaar, k)
+        totaal += r
+        print(f"Q{k} ({dagen_in_kwartaal(jaar, k)} dagen): {r:.2f}")
+    print(f"Som kwartalen: {totaal:.2f}")
