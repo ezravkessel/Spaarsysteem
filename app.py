@@ -1,10 +1,11 @@
-import os
-from flask import Flask, render_template, request, session, redirect, url_for
-from database import check_login
+from flask import Flask, render_template
+from routes.saldo import saldo_bp
 
 app = Flask(__name__)
-app.config["SECRET_KEY"] = os.environ["SECRET_KEY"]
+app.register_blueprint(saldo_bp)
 
+<<<<<<< HEAD
+=======
 @app.route("/")
 def home():
     return render_template("index.html")
@@ -49,5 +50,6 @@ def logout():
 
 
 
+>>>>>>> d3e6f5ea711ac58bcb0e8c62066e8d8353c442a9
 if __name__ == "__main__":
     app.run(debug=True)
