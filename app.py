@@ -2,9 +2,12 @@ import os
 from flask import Flask, render_template, request, session, redirect, url_for
 from database import check_login
 from decimal import Decimal, InvalidOperation
+from routes.saldo import saldo_bp
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = os.environ["SECRET_KEY"]
+app.register_blueprint(saldo_bp)
+
 
 @app.route("/")
 def home():
