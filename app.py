@@ -3,6 +3,7 @@ from flask import Flask, render_template, request, session, redirect, url_for
 from database import check_login
 from decimal import Decimal, InvalidOperation
 from routes.saldo import saldo_bp
+from validatie import valideer_bedrag
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = os.environ["SECRET_KEY"]
@@ -65,18 +66,13 @@ def storten():
         naar_rekening = request.form.get("naar_rekening")
 
         try:
-            bedrag = Decimal(bedrag)
-        except InvalidOperation:
+            bedrag = valideer_bedrag(bedrag)
+        except ValueError as fout:
             return render_template(
                 "storten.html",
-                foutmelding="Vul een geldig bedrag in."
+                foutmelding=str(fout)
             )
 
-        if not bedrag.is_finite() or bedrag <= 0:
-            return render_template(
-                "storten.html",
-                foutmelding="Het bedrag moet groter zijn dan € 0."
-            )
 
         if van_rekening != "betaalrekening" or naar_rekening != "spaarrekening":
             return render_template(
